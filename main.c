@@ -48,6 +48,7 @@
  *
  */
 
+
 #include <stdbool.h>
 #include <stdint.h>
 #include "nrf_delay.h"
@@ -56,6 +57,7 @@
 /**
  * @brief Function for application main entry.
  */
+
 int main(void)
 {
     /* Configure board. */
@@ -64,11 +66,17 @@ int main(void)
     /* Toggle LEDs. */
     while (true)
     {
-        for (int i = 0; i < LEDS_NUMBER; i++)
-        {
-            bsp_board_led_invert(i);
+        //#6597
+        int countBlinks[LEDS_NUMBER] = {6, 5, 9, 7};
+        
+        for (int i = 0; i < LEDS_NUMBER; i++) {
+            for (int j = 0; j < countBlinks[i] * 2; j++) {
+                bsp_board_led_invert(i);
+                nrf_delay_ms(500);
+            }
+
             nrf_delay_ms(500);
-        }
+        }    
     }
 }
 
