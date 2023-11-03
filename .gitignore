@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 pca10059/mbr/armgcc/_build/nrf52840_xxaa.dfu
 pca10059/mbr/armgcc/_build/nrf52840_xxaa.hex
 pca10059/mbr/armgcc/_build/nrf52840_xxaa.map
 pca10059/mbr/armgcc/_build/nrf52840_xxaa.out
 *o
+=======
+_build/
+.vscode/
+>>>>>>> 43119e5 (Added .gitignore; Removed _build/ and hex/ (Issue #1))

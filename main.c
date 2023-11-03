@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Copyright (c) 2014 - 2021, Nordic Semiconductor ASA
  *
@@ -49,14 +50,22 @@
  */
 
 
+=======
+>>>>>>> 43119e5 (Added .gitignore; Removed _build/ and hex/ (Issue #1))
 #include <stdbool.h>
 #include <stdint.h>
 #include "nrf_delay.h"
 #include "boards.h"
 
+<<<<<<< HEAD
 /**
  * @brief Function for application main entry.
  */
+=======
+#define ID 6597
+#define BLINK_PAUSE_MS 500
+#define LED_PAUSE_MS 1000
+>>>>>>> 43119e5 (Added .gitignore; Removed _build/ and hex/ (Issue #1))
 
 int main(void)
 {
@@ -66,12 +75,18 @@ int main(void)
     /* Toggle LEDs. */
     while (true)
     {
+<<<<<<< HEAD
         //#6597
         int countBlinks[LEDS_NUMBER] = {6, 5, 9, 7};
+=======
+        /* My plate ID: #6597 */
+        int countBlinks[LEDS_NUMBER] = {ID / 1000, ID / 100 % 10, ID / 10 % 10, ID % 10};
+>>>>>>> 43119e5 (Added .gitignore; Removed _build/ and hex/ (Issue #1))
         
         for (int i = 0; i < LEDS_NUMBER; i++) {
             for (int j = 0; j < countBlinks[i] * 2; j++) {
                 bsp_board_led_invert(i);
+<<<<<<< HEAD
                 nrf_delay_ms(500);
             }
 
@@ -79,7 +94,12 @@ int main(void)
         }    
     }
 }
+=======
+                nrf_delay_ms(BLINK_PAUSE_MS);
+            }
+>>>>>>> 43119e5 (Added .gitignore; Removed _build/ and hex/ (Issue #1))
 
-/**
- *@}
- **/
+            nrf_delay_ms(LED_PAUSE_MS);
+        }    
+    }
+}
