@@ -24,10 +24,9 @@
 /* ============= */
 
 /* leds status */
-#define LED_INVERT current_blinks % 2
+#define LED_INVERT(counter) ((counter) % 2)
 /* =========== */
 
-/* My plate ID: #6597 */
 int main(void) {
     bsp_board_init(BSP_INIT_LEDS);
 
@@ -42,7 +41,7 @@ int main(void) {
         for (int current_led = 0; current_led < LEDS_NUMBER; current_led++) {
             for (int current_blinks = 0; current_blinks < count_blinks[current_led] * 2; current_blinks++) {
                 while (nrf_gpio_pin_read(BUTTON_PIN) != BUTTON_ON) { }
-                nrf_gpio_pin_write(leds_pins[current_led], LED_INVERT);
+                nrf_gpio_pin_write(leds_pins[current_led], LED_INVERT(current_blinks));
                 nrf_delay_ms(BLINK_PAUSE_MS);
             }
         }
